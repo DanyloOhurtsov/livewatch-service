@@ -31,7 +31,7 @@ const UserAvatar = ({
     showBadge,
     size,
 }: UserAvatarProps) => {
-    const canShowNadge = showBadge && isLive;
+    const canShowBadge = showBadge && isLive;
 
     return (
         <div className="relative">
@@ -47,7 +47,7 @@ const UserAvatar = ({
                     {username[username.length - 1]}
                 </AvatarFallback>
             </Avatar>
-            {canShowNadge && (
+            {canShowBadge && (
                 <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2">
                     <LiveBadge />
                 </div>
