@@ -1,9 +1,12 @@
-import React from 'react'
+import ToggleSidebar from "./toggle";
+import { Wrapper } from "./wrapper";
 
 const SideBar = () => {
-  return (
-    <div>SideBar</div>
-  )
-}
+    return (
+        <Wrapper>
+            <ToggleSidebar />
+        </Wrapper>
+    );
+};
 
-export default SideBar
+export default SideBar;
