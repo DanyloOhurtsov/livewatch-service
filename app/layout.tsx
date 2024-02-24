@@ -29,7 +29,9 @@ export default function RootLayout({
                         attribute="class"
                         forcedTheme="dark"
                         storageKey="PlayHub-Theme"
-                    >{children}</ThemeProvider>
+                    >
+          ThemeProvider {children}
+                    </ThemeProvider>
                 </body>
             </html>
         </ClerkProvider>
