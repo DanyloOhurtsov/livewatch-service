@@ -6,16 +6,15 @@ import { useState, useEffect } from "react";
 import { ToggleSkeleton } from "./toggle";
 import { RecommendedSkeleton } from "./recommended";
 
+import { useIsClient } from "usehooks-ts";
+
 interface WrapperProps {
     children: React.ReactNode;
 }
 
 export const Wrapper = ({ children }: WrapperProps) => {
-    const [isClient, setIsClient] = useState(true);
-
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
+    // const isClient = useIsClient();
+    const isClient = true;
 
     if (!isClient)
         return (
