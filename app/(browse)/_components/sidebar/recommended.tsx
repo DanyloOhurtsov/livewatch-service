@@ -1,13 +1,18 @@
 "use client";
 
+// @/
 import { useSidebar } from "@/store/use-sidebar";
 import { User } from "@prisma/client";
+
+// ./
 import UserItem, { UserItemSkeleton } from "./user-item";
 
+// Interface
 interface RecommendedProps {
     data: User[];
 }
 
+// !_____________________________________________________________________________
 const Recommended = ({ data }: RecommendedProps) => {
     const { collapsed } = useSidebar((state) => state);
 
@@ -26,16 +31,16 @@ const Recommended = ({ data }: RecommendedProps) => {
                         key={user.id}
                         username={user.username}
                         imageUrl={user.imageUrl}
-                        isLive={true}
+                        isLive={false}
                     />
                 ))}
             </ul>
         </div>
     );
 };
-
 export default Recommended;
 
+// !_____________________________________________________________________________
 export const RecommendedSkeleton = () => {
     return (
         <ul className="px-2">

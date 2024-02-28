@@ -1,6 +1,8 @@
+// ./
 import { db } from "./db";
 import { getSelf } from "./auth-service";
 
+// !_____________________________________________________________________________
 export const isFollowingUser = async (id: string) => {
     try {
         const self = await getSelf();
@@ -30,6 +32,7 @@ export const isFollowingUser = async (id: string) => {
     }
 };
 
+// !_____________________________________________________________________________
 export const followUser = async (id: string) => {
     const self = await getSelf();
 

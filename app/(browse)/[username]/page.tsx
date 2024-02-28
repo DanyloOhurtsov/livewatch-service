@@ -1,15 +1,21 @@
+//
+import { notFound } from "next/navigation";
+
+// @/
 import { isFollowingUser } from "@/lib/follow-service";
 import { getUserByUsername } from "@/lib/user-service";
-import { notFound } from "next/navigation";
-import React from "react";
+
+// ./
 import { Actions } from "./_components/actions";
 
+// Interface
 interface UserPageProps {
     params: {
         username: string;
     };
 }
 
+// !_____________________________________________________________________________
 const UserPage = async ({ params }: UserPageProps) => {
     const user = await getUserByUsername(params.username);
 
@@ -26,5 +32,4 @@ const UserPage = async ({ params }: UserPageProps) => {
         </div>
     );
 };
-
 export default UserPage;

@@ -1,8 +1,12 @@
+// 
 import { Suspense } from "react";
+
+// ./
 import Container from "./_components/container";
 import NavBar from "./_components/navbar";
 import SideBar, { SideBarSkeleton } from "./_components/sidebar";
 
+// !_____________________________________________________________________________
 const BrowseLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <>
@@ -16,5 +20,4 @@ const BrowseLayout = ({ children }: { children: React.ReactNode }) => {
         </>
     );
 };
-
 export default BrowseLayout;

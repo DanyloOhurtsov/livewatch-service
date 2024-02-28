@@ -1,9 +1,12 @@
+// @/
 import { cn } from "@/lib/utils";
 
+// Interface
 interface LiveBadgeProps {
     className?: string;
 }
 
+// !_____________________________________________________________________________
 const LiveBadge = ({ className }: LiveBadgeProps) => {
     return (
         <div
@@ -16,5 +19,4 @@ const LiveBadge = ({ className }: LiveBadgeProps) => {
         </div>
     );
 };
-
 export default LiveBadge;
