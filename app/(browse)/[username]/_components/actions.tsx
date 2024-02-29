@@ -39,7 +39,7 @@ export const Actions = ({ isFollowing, userId }: ActionsProps) => {
         });
     };
 
-    const onClick = () => {
+    const onFollowClick = () => {
         if (isFollowing) {
             handleUnfollow();
         } else {
@@ -51,7 +51,7 @@ export const Actions = ({ isFollowing, userId }: ActionsProps) => {
         <Button
             disabled={isPending}
             variant={isFollowing ? "destructive" : "primary"}
-            onClick={onClick}
+            onClick={onFollowClick}
         >
             {isFollowing ? "Unfollow" : "Follow"}
         </Button>
