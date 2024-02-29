@@ -15,7 +15,7 @@ generator client {
 
 // User Model
 model User {
-  id                String      @id @default(uuid())
+  id                String      @id   @default(uuid())
   username          String      @unique
   imageUrl          String      @db.Text
   externalUserId    String      @unique
@@ -24,13 +24,16 @@ model User {
   following         Follow[]    @relation("Following")
   followedBy        Follow[]    @relation("FollowedBy")
 
+  blocking          Block[]     @relation("Blocking")
+  blockedBy         Block[]     @relation("BlockedBy")
+
   createdAt         DateTime    @default(now())
   updatedAt         DateTime    @updatedAt
 }
 
 // Follow Model
 model Follow {
-  id                String      @id @default(uuid())
+  id                String      @id   @default(uuid())
   followerId        String
   followingId       String
   follower          User        @relation(name: "Following", fields: [followerId], references: [id], onDelete: Cascade)
@@ -42,4 +45,18 @@ model Follow {
   @@unique([followerId, followingId])
   @@index([followerId])
   @@index([followingId])
+}
+
+// Block Model
+model Block {
+  id                String      @id   @default(uuid())
+  blockerId         String 
+  blockedId         String
+
+  blocker           User        @relation(name: "Blocking", fields: [blockerId], references: [id], onDelete: Cascade)
+  blocked           User        @relation(name: "BlockedBy", fields: [blockedId], references: [id], onDelete: Cascade)
+
+  @@unique([blockerId, blockedId])
+  @@index([blockerId])
+  @@index([blockedId])
 }
