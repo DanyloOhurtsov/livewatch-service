@@ -1,5 +1,6 @@
 //
 import type { Metadata } from "next";
+import { Toaster } from "sonner";
 import { Inter } from "next/font/google";
 
 // @/
@@ -38,6 +39,7 @@ export default function RootLayout({
                         forcedTheme="dark"
                         storageKey="PlayHub-Theme"
                     >
+                        <Toaster theme={"light"} position="bottom-center" />
                         {children}
                     </ThemeProvider>
                 </body>
