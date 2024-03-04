@@ -48,6 +48,7 @@ export const Actions = ({ isFollowing, userId }: ActionsProps) => {
         }
     };
 
+    // Blocking / Unblocking
     const handleBlock = () => {
         startTransition(() => {
             onBlock(userId)
