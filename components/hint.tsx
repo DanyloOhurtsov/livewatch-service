@@ -12,7 +12,7 @@ interface HintProps {
     children: React.ReactNode;
     asChild?: boolean;
     side?: "top" | "bottom" | "left" | "right";
-    align: "start" | "center" | "end";
+    align?: "start" | "center" | "end";
 }
 
 // !_____________________________________________________________________________
