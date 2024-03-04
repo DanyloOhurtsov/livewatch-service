@@ -26,6 +26,14 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    function foo() {
+        console.log('hsdkfjbv')
+        return 5;
+    }
+    
+    let myVal = foo;
+    myVal()
+    console.log(myVal)
     return (
         <ClerkProvider
             appearance={{

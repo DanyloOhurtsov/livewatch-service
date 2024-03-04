@@ -8,9 +8,7 @@ export const isBlockedByUser = async (id: string) => {
         const self = await getSelf();
 
         const otherUser = await db.user.findUnique({
-            where: {
-                id,
-            },
+            where: { id },
         });
 
         if (!otherUser) {
@@ -24,8 +22,8 @@ export const isBlockedByUser = async (id: string) => {
         const existingBlock = await db.block.findUnique({
             where: {
                 blockerId_blockedId: {
-                    blockedId: self.id,
                     blockerId: otherUser.id,
+                    blockedId: self.id,
                 },
             },
         });
@@ -45,9 +43,7 @@ export const blockUser = async (id: string) => {
     }
 
     const otherUser = await db.user.findUnique({
-        where: {
-            id,
-        },
+        where: { id },
     });
 
     if (!otherUser) {
@@ -81,7 +77,7 @@ export const blockUser = async (id: string) => {
 };
 
 // Unblocking user
-export const unBlockUser = async (id: string) => {
+export const unblockUser = async (id: string) => {
     const self = await getSelf();
 
     if (self.id === id) {
@@ -89,9 +85,7 @@ export const unBlockUser = async (id: string) => {
     }
 
     const otherUser = await db.user.findUnique({
-        where: {
-            id,
-        },
+        where: { id },
     });
 
     if (!otherUser) {

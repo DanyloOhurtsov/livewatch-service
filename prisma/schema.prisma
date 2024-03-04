@@ -1,19 +1,13 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Database
 datasource db {
   provider     = "mysql"
   url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
-// Client Gen
 generator client {
   provider = "prisma-client-js"
 }
 
-// User Model
 model User {
   id                String      @id   @default(uuid())
   username          String      @unique
@@ -31,7 +25,6 @@ model User {
   updatedAt         DateTime    @updatedAt
 }
 
-// Follow Model
 model Follow {
   id                String      @id   @default(uuid())
   followerId        String
@@ -47,7 +40,6 @@ model Follow {
   @@index([followingId])
 }
 
-// Block Model
 model Block {
   id                String      @id   @default(uuid())
   blockerId         String 
