@@ -8,6 +8,7 @@ import { isBlockedByUser } from "@/lib/block-service";
 
 // ./
 import { Actions } from "./_components/actions";
+import { BlockedPage } from "../_components/components";
 
 // Interface
 interface UserPageProps {
@@ -20,13 +21,17 @@ interface UserPageProps {
 const UserPage = async ({ params }: UserPageProps) => {
     const user = await getUserByUsername(params.username);
 
-    if (!user) return notFound();
+    if (!user) {
+        notFound();
+    }
 
     const isFollowing = await isFollowingUser(user.id);
 
     const isBlocked = await isBlockedByUser(user.id);
 
-
+    if (isBlocked) {
+        return <BlockedPage blockedBy={user.username}/>;
+    }
     return (
         <div className="flex flex-col gap-y-4">
             <p>username: {user.username}</p>
