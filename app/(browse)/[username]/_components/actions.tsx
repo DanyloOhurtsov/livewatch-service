@@ -7,7 +7,7 @@ import { toast } from "sonner";
 // @/
 import { onFollow, onUnfollow } from "@/actions/follow";
 import { Button } from "@/components/ui/button";
-import { onBlock } from "@/actions/block";
+import { onBlock, onUnblock } from "@/actions/block";
 
 // Inteface
 interface ActionsProps {
@@ -69,7 +69,7 @@ export const Actions = ({ isFollowing, userId }: ActionsProps) => {
                 {isFollowing ? "Unfollow" : "Follow"}
             </Button>
             <Button onClick={handleBlock} disabled={isPending}>
-                Block user
+                Block
             </Button>
         </>
     );
