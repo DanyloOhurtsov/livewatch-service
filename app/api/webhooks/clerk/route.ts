@@ -1,18 +1,16 @@
-//
 import { Webhook } from "svix";
 import { headers } from "next/headers";
-
-// @/
 import { WebhookEvent } from "@clerk/nextjs/server";
+
 import { db } from "@/lib/db";
 
-// !_____________________________________________________________________________
 export async function POST(req: Request) {
+    // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
     const WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET;
 
     if (!WEBHOOK_SECRET) {
         throw new Error(
-            "Please add CLERK_WEBHOOK_SECRET from Clerk Dashboard to .env"
+            "Please add CLERK_WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local"
         );
     }
 
@@ -24,7 +22,7 @@ export async function POST(req: Request) {
 
     // If there are no headers, error out
     if (!svix_id || !svix_timestamp || !svix_signature) {
-        return new Response("Error occured - no svix headers", {
+        return new Response("Error occured -- no svix headers", {
             status: 400,
         });
     }
@@ -52,21 +50,23 @@ export async function POST(req: Request) {
         });
     }
 
-    // Get the type
     const eventType = evt.type;
 
-    // CREATING
     if (eventType === "user.created") {
         await db.user.create({
             data: {
                 externalUserId: payload.data.id,
                 username: payload.data.username,
                 imageUrl: payload.data.image_url,
+                stream: {
+                    create: {
+                        name: `${payload.data.username}'s stream`,
+                    },
+                },
             },
         });
     }
 
-    // UPDATING
     if (eventType === "user.updated") {
         await db.user.update({
             where: {
@@ -79,7 +79,6 @@ export async function POST(req: Request) {
         });
     }
 
-    // DELETING
     if (eventType === "user.deleted") {
         await db.user.delete({
             where: {
