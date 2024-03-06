@@ -19,7 +19,7 @@ const ChatPage = async () => {
                 <ToggleCard
                     field="isChatEnabled"
                     label="Enable chat"
-                    value={true}
+                    value={stream.isChatEnabled}
                 />
             </div>
         </div>
