@@ -5,7 +5,5 @@ export const getStreamByUserId = async (userId: string) => {
         where: { userId },
     });
 
-    console.log(userId, 'djfbvs')
-
     return stream;
 };
