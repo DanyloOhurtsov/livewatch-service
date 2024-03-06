@@ -6,11 +6,9 @@ const ChatPage = async () => {
     const self = await getSelf();
     const stream = await getStreamByUserId(self.id);
 
-    console.log(stream)
-
-    // if (!stream) {
-    //     throw new Error("Stream not found");
-    // }
+    if (!stream) {
+        throw new Error("Stream not found");
+    }
 
     return (
         <div className="p-6">
