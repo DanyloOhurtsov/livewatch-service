@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
 import { WebhookReceiver } from "livekit-server-sdk";
+
 import { db } from "@/lib/db";
 
 const receiver = new WebhookReceiver(
@@ -9,9 +10,8 @@ const receiver = new WebhookReceiver(
 
 export async function POST(req: Request) {
     const body = await req.text();
-
+  
     const headerPayload = headers();
-
     const authorization = headerPayload.get("Authorization");
 
     if (!authorization) {
@@ -19,8 +19,7 @@ export async function POST(req: Request) {
     }
 
     const event = receiver.receive(body, authorization);
-
-    // STARTING INGRESS
+  
     if (event.event === "ingress_started") {
         await db.stream.update({
             where: {
@@ -32,7 +31,6 @@ export async function POST(req: Request) {
         });
     }
 
-    // ENDING INGRESS
     if (event.event === "ingress_ended") {
         await db.stream.update({
             where: {
