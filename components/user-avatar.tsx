@@ -1,7 +1,7 @@
 //
 import { cva, type VariantProps } from "class-variance-authority";
 
-// @/
+
 import { cn } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
