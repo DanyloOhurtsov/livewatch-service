@@ -9,8 +9,7 @@ import FullscreenControl from "./fullscrean-control";
 import VolumeControl from "./volume-control";
 
 interface LiveVideoProps {
-    participent?: Participant;
-    // TODO: delete '?' mark /\ here
+    participent: Participant;
 }
 
 const LiveVideo = ({ participent }: LiveVideoProps) => {
@@ -59,8 +58,7 @@ const LiveVideo = ({ participent }: LiveVideoProps) => {
     };
 
     useTracks([Track.Source.Camera, Track.Source.Microphone])
-        .filter((track) => track.participant.identity === participent?.identity)
-                                            // TODO: delete '?' mark /\ here
+        .filter((track) => track.participant.identity === participent.identity)
         .forEach((track) => {
             if (videoRef.current) {
                 track.publication.track?.attach(videoRef.current);
