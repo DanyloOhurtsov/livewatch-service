@@ -10,6 +10,7 @@ import VolumeControl from "./volume-control";
 
 interface LiveVideoProps {
     participent?: Participant;
+    // TODO: delete '?' mark /\ here
 }
 
 const LiveVideo = ({ participent }: LiveVideoProps) => {
@@ -59,6 +60,7 @@ const LiveVideo = ({ participent }: LiveVideoProps) => {
 
     useTracks([Track.Source.Camera, Track.Source.Microphone])
         .filter((track) => track.participant.identity === participent?.identity)
+                                            // TODO: delete '?' mark /\ here
         .forEach((track) => {
             if (videoRef.current) {
                 track.publication.track?.attach(videoRef.current);
