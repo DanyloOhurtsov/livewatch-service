@@ -54,7 +54,7 @@ const Chat = ({
         return messages.sort((a, b) => b.timestamp - a.timestamp);
     }, [messages]);
 
-    const onCubmit = () => {
+    const onSubmit = () => {
         if (!send) return;
 
         send(value);
