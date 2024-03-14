@@ -33,9 +33,6 @@ const Video = ({ hostIdentity, hostName }: VideoProps) => {
         content = <LiveVideo participent={participant} />;
     }
 
-    // TODO: uncomment /\ this block and delete \/ this function
-    // content = <LiveVideo participent={participant} />;
-
     return (
         <div className="aspect-video border-b group relative">{content}</div>
     );
