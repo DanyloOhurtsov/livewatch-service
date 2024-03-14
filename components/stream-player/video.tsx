@@ -25,13 +25,15 @@ const Video = ({ hostIdentity, hostName }: VideoProps) => {
 
     let content;
 
-    if (!participant && connectionState === ConnectionState.Connected) {
-        content = <OfflineVideo username={hostName} />;
-    } else if (!participant || tracks.length === 0) {
-        content = <LoadingVideo label={connectionState} />;
-    } else {
+    // if (!participant && connectionState === ConnectionState.Connected) {
+    //     content = <OfflineVideo username={hostName} />;
+    // } else if (!participant || tracks.length === 0) {
+    //     content = <LoadingVideo label={connectionState} />;
+    // } else {
+    //     content = <LiveVideo participent={participant} />;
+    // }
+
         content = <LiveVideo participent={participant} />;
-    }
 
     return (
         <div className="aspect-video border-b group relative">{content}</div>
