@@ -50,7 +50,7 @@ const ChatForm = ({
             onSubmit();
         }
     };
-    if (!isHidden) {
+    if (isHidden) {
         return null;
     }
 
