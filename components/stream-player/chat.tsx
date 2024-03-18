@@ -11,6 +11,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import ChatHeader from "./chat-header";
 import ChatForm from "./chat-form";
+import ChatList from "./chat-list";
 
 interface ChatProps {
     viewerName: string;
@@ -71,6 +72,7 @@ const Chat = ({
             <ChatHeader />
             {variant === ChatVariant.CHAT && (
                 <>
+                    <ChatList isHidden={isHidden} messages={reversedMessages} />
                     <ChatForm
                         onSubmit={onSubmit}
                         onChange={onChange}
