@@ -10,6 +10,7 @@ import { ConnectionState } from "livekit-client";
 import { useEffect, useMemo, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import ChatHeader from "./chat-header";
+import ChatForm from "./chat-form";
 
 interface ChatProps {
     viewerName: string;
@@ -70,7 +71,15 @@ const Chat = ({
             <ChatHeader />
             {variant === ChatVariant.CHAT && (
                 <>
-                    <p>Chat mode:</p>
+                    <ChatForm
+                        onSubmit={onSubmit}
+                        onChange={onChange}
+                        value={value}
+                        isHidden={isHidden}
+                        isFollowersOnly={isChatFollowersOnly}
+                        isDelay={isChatDelayed}
+                        isFollowing={isFollowing}
+                    />
                 </>
             )}
             {variant === ChatVariant.COMMUNITY && (

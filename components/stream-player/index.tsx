@@ -22,8 +22,9 @@ const StreamPlayer = ({ user, stream, isFollowing }: StreamPlayerProps) => {
 
     if (!token || !name || !identity) {
         return (
-            <div>
-                <h2>Cannot watch the stream</h2>
+            <div className="w-full h-full flex flex-col items-center justify-center">
+                <h2>Please wait...</h2>
+                <p>We are loading stream data</p>
             </div>
         );
     }
