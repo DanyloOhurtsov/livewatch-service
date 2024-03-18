@@ -13,7 +13,7 @@ const ChatHeader = () => {
             <p className="font-semibold text-primary text-center">
                 Stream chat
             </p>
-            <div className="absolute ring-2 top-2">
+            <div className="absolute right-2 top-2">
                 <VariantToggle />
             </div>
         </div>
