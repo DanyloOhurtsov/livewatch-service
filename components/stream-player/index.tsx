@@ -30,7 +30,7 @@ const StreamPlayer = ({ user, stream, isFollowing }: StreamPlayerProps) => {
     return (
         <>
             {collapsed && (
-                <div className="hidden lg:block fixed top-[100px] right-2 z-50">
+                <div className="hidden lg:block fixed top-[88px] right-2 z-50">
                     <ChatToggle />
                 </div>
             )}
