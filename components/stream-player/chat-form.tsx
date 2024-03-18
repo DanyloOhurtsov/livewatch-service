@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Skeleton } from "../ui/skeleton";
+import ChatInfo from "./chat-info";
 
 interface ChatFormProps {
     onSubmit: () => void;
@@ -49,7 +50,7 @@ const ChatForm = ({
             onSubmit();
         }
     };
-    if (isHidden) {
+    if (!isHidden) {
         return null;
     }
 
@@ -59,6 +60,7 @@ const ChatForm = ({
             onSubmit={handleSubmit}
         >
             <div className="w-full">
+                <ChatInfo isDelay={isDelay} isFollowersOnly={isFollowersOnly} />
                 <Input
                     onChange={(e) => onChange(e.target.value)}
                     value={value}
