@@ -9,10 +9,15 @@ import {
 import { ConnectionState } from "livekit-client";
 import { useEffect, useMemo, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
-import ChatHeader, { ChatHeaderSkeleton } from "./chat-header";
-import ChatForm, { ChatFormSkeleton } from "./chat-form";
-import ChatList, { ChatListSkeleton } from "./chat-list";
-import ChatCommunity from "./chat-community";
+import {
+    ChatCommunity,
+    ChatList,
+    ChatListSkeleton,
+    ChatForm,
+    ChatFormSkeleton,
+    ChatHeader,
+    ChatHeaderSkeleton,
+} from "./components";
 
 interface ChatProps {
     viewerName: string;

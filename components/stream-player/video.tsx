@@ -6,9 +6,7 @@ import {
     useRemoteParticipant,
     useTracks,
 } from "@livekit/components-react";
-import OfflineVideo from "./offline-video";
-import LoadingVideo from "./loading-video";
-import LiveVideo from "./live-video";
+import { OfflineVideo, LoadingVideo, LiveVideo } from "./components";
 import { Skeleton } from "../ui/skeleton";
 
 interface VideoProps {
