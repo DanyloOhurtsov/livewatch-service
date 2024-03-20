@@ -11,6 +11,7 @@ import {
     ChatToggle,
     Header,
     HeaderSkeleton,
+    InfoCard,
 } from "./components";
 import { useChatSidebar } from "@/store/use-chat-sidebar";
 import { cn } from "@/lib/utils";
@@ -53,6 +54,12 @@ const StreamPlayer = ({ user, stream, isFollowing }: StreamPlayerProps) => {
                         imageUrl={user.imageUrl}
                         isFollowing={isFollowing}
                         name={stream.name}
+                    />
+                    <InfoCard
+                        hostIdentity={user.id}
+                        viewerIdentity={identity}
+                        name={stream.name}
+                        thumbnailUrl={stream.thumbnailUrl}
                     />
                 </div>
                 <div className={cn("col-span-1", collapsed && "hidden")}>

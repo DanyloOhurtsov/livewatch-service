@@ -17,6 +17,8 @@ import VariantToggle from "./variant-toggle";
 import Video, { VideoSkeleton } from "./video";
 import VolumeControl from "./volume-control";
 import Action, { ActionSkeleton } from "./action";
+import InfoCard from "./info-card";
+import InfoModal from "./info-modal";
 
 export {
     Chat,
@@ -44,4 +46,6 @@ export {
     VideoSkeleton,
     Action,
     ActionSkeleton,
+    InfoCard,
+    InfoModal,
 };
