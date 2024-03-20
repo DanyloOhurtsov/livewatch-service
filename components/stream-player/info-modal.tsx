@@ -14,6 +14,8 @@ import { Button } from "../ui/button";
 import React, { useState, useTransition, useRef, ElementRef } from "react";
 import { updateStream } from "@/actions/stream";
 import { toast } from "sonner";
+import { UploadDropzone } from "@/lib/uploadthing";
+import { useRouter } from "next/navigation";
 
 interface InfoModalProps {
     initialName: string;
@@ -23,7 +25,11 @@ interface InfoModalProps {
 const InfoModal = ({ initialName, initialThumbnailUrl }: InfoModalProps) => {
     const closeRef = useRef<ElementRef<"button">>(null);
     const [isPending, startTransition] = useTransition();
+
     const [name, setName] = useState(initialName);
+    const [thumbnailUrl, setThumbnailUrl] = useState(initialThumbnailUrl);
+
+    const router = useRouter();
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value);
@@ -64,6 +70,26 @@ const InfoModal = ({ initialName, initialThumbnailUrl }: InfoModalProps) => {
                             value={name}
                             disabled={isPending}
                         />
+                    </div>
+                    <div className=" space-y-2">
+                        <Label>Thumbnail</Label>
+                        <div className=" rounded-xl border outline-dashed outline-muted">
+                            <UploadDropzone
+                                endpoint="thumbnailUploader"
+                                appearance={{
+                                    label: {
+                                        color: "#ffffff",
+                                    },
+                                    allowedContent: {
+                                        color: "#ffffff",
+                                    },
+                                }}
+                                onClientUploadComplete={(res) => {
+                                    setThumbnailUrl(res?.[0]?.url);
+                                    router.refresh();
+                                }}
+                            />
+                        </div>
                     </div>
                     <div className="flex justify-between">
                         <DialogClose asChild ref={closeRef}>
