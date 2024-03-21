@@ -11,12 +11,12 @@ import { useEffect, useMemo, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import {
     ChatCommunity,
-    ChatList,
-    ChatListSkeleton,
     ChatForm,
     ChatFormSkeleton,
     ChatHeader,
     ChatHeaderSkeleton,
+    ChatList,
+    ChatListSkeleton,
 } from "./components";
 
 interface ChatProps {

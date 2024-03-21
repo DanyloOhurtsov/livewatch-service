@@ -1,23 +1,27 @@
 "use client";
 
-import { useViewerToken } from "@/hooks/use-viewer-token";
 import { Stream, User } from "@prisma/client";
 import { LiveKitRoom } from "@livekit/components-react";
+import { useViewerToken } from "@/hooks/use-viewer-token";
+import { useChatSidebar } from "@/store/use-chat-sidebar";
+import { cn } from "@/lib/utils";
 import {
-    Video,
-    VideoSkeleton,
+    AboutCard,
     Chat,
     ChatSkeleton,
     ChatToggle,
     Header,
     HeaderSkeleton,
     InfoCard,
+    Video,
+    VideoSkeleton,
 } from "./components";
-import { useChatSidebar } from "@/store/use-chat-sidebar";
-import { cn } from "@/lib/utils";
 
 interface StreamPlayerProps {
-    user: User & { stream: Stream | null };
+    user: User & {
+        stream: Stream | null;
+        _count: { followedBy: number };
+    };
     stream: Stream;
     isFollowing: boolean;
 }
@@ -60,6 +64,13 @@ const StreamPlayer = ({ user, stream, isFollowing }: StreamPlayerProps) => {
                         viewerIdentity={identity}
                         name={stream.name}
                         thumbnailUrl={stream.thumbnailUrl}
+                    />
+                    <AboutCard
+                        hostName={user.username}
+                        hostIdentity={user.id}
+                        viewerIdentity={identity}
+                        bio={user.bio}
+                        followedCount={user._count.followedBy}
                     />
                 </div>
                 <div className={cn("col-span-1", collapsed && "hidden")}>
