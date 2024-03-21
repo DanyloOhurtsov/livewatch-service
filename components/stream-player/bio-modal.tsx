@@ -10,7 +10,7 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 import { Textarea } from "../ui/textarea";
-import React, { useState, useTransition } from "react";
+import React, { ElementRef, useRef, useState, useTransition } from "react";
 import { updateUser } from "@/actions/user";
 import { toast } from "sonner";
 
@@ -19,6 +19,8 @@ interface BioModalProps {
 }
 
 const BioModal = ({ initialValue }: BioModalProps) => {
+    const closeRef = useRef<ElementRef<"button">>(null);
+
     const [value, setValue] = useState(initialValue || "");
     const [isPending, startTransition] = useTransition();
 
@@ -29,7 +31,10 @@ const BioModal = ({ initialValue }: BioModalProps) => {
             updateUser({
                 bio: value,
             })
-                .then(() => toast.success("Changes saved"))
+                .then(() => {
+                    toast.success("Changes saved");
+                    closeRef.current?.click();
+                })
                 .catch(() => toast.error("Something went wrong"));
         });
     };
@@ -52,7 +57,7 @@ const BioModal = ({ initialValue }: BioModalProps) => {
                         className=" resize-none"
                     />
                     <div className=" flex justify-between">
-                        <DialogClose asChild>
+                        <DialogClose ref={closeRef} asChild>
                             <Button variant={"ghost"} type="button">
                                 Cancel
                             </Button>
