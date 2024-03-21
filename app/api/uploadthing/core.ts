@@ -12,7 +12,7 @@ export const ourFileRouter = {
         },
     })
         .middleware(async () => {
-            const self = getSelf();
+            const self = await getSelf();
 
             return { user: self };
         })
