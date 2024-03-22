@@ -3,10 +3,8 @@
 import { useSidebar } from "@/store/use-sidebar";
 import { Follow, User } from "@prisma/client";
 
-// ./
 import UserItem, { UserItemSkeleton } from "./user-item";
 
-// Interface
 interface FollowingProps {
     data: (Follow & {
         following: User & {
@@ -15,7 +13,6 @@ interface FollowingProps {
     })[];
 }
 
-// !_____________________________________________________________________________
 const Following = ({ data }: FollowingProps) => {
     const { collapsed } = useSidebar((state) => state);
     if (!data.length) {

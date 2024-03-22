@@ -1,23 +1,20 @@
 "use client";
 
-//
 import { useIsClient } from "usehooks-ts";
-
 
 import { cn } from "@/lib/utils";
 import { useSidebar } from "@/store/use-sidebar";
 
-// ./
-import { ToggleSkeleton } from "./toggle";
-import { RecommendedSkeleton } from "./recommended";
-import { FollowingSkeleton } from "./following";
+import {
+    ToggleSkeleton,
+    RecommendedSkeleton,
+    FollowingSkeleton,
+} from "./components";
 
-// Interface
 interface WrapperProps {
     children: React.ReactNode;
 }
 
-// !_____________________________________________________________________________
 export const Wrapper = ({ children }: WrapperProps) => {
     const isClient = useIsClient();
     const { collapsed } = useSidebar((state) => state);
