@@ -1,6 +1,6 @@
 import { HintTooltip } from "./hint";
 import LiveBadge from "./live-badge";
-import Thumbnail from "./thumbnail";
+import Thumbnail, { ThumbnailSkeleton } from "./thumbnail";
 import UserAvatar, { UserAvatarSkeleton } from "./user-avatar";
 import VerifiedMark from "./verified-mark";
 
@@ -11,4 +11,5 @@ export {
     UserAvatarSkeleton,
     VerifiedMark,
     Thumbnail,
+    ThumbnailSkeleton,
 };
