@@ -1,8 +1,6 @@
-// ./
 import { db } from "./db";
 import { getSelf } from "./auth-service";
 
-// Is blocked bt other user
 export const isBlockedByUser = async (id: string) => {
     try {
         const self = await getSelf();
@@ -65,7 +63,6 @@ export const isBlockUser = async (id: string) => {
     }
 };
 
-// Blocking user
 export const blockUser = async (id: string) => {
     const self = await getSelf();
 
@@ -107,7 +104,6 @@ export const blockUser = async (id: string) => {
     return block;
 };
 
-// Unblocking user
 export const unblockUser = async (id: string) => {
     const self = await getSelf();
 
