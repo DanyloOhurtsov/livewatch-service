@@ -14,7 +14,7 @@ const Thumbnail = ({ src, fallback, isLive, username }: ThumbnailProps) => {
 
     if (!src) {
         content = (
-            <div className="bg-background flex flex-col items-center justify-center gap-y-4 h-full w-full transition-transform group-hover:translate-x-2 group-hover:-translate-y-1 rounded-md">
+            <div className="bg-background flex flex-col items-center justify-center gap-y-4 h-full w-full transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md">
                 <UserAvatar
                     size={"lg"}
                     showBadge
