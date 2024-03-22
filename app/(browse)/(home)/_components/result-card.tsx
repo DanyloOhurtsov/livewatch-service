@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { Stream, User } from "@prisma/client";
-import { LiveBadge, Thumbnail, UserAvatar } from "@/components/components";
+import {
+    LiveBadge,
+    Thumbnail,
+    ThumbnailSkeleton,
+    UserAvatar,
+    UserAvatarSkeleton,
+} from "@/components/components";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface ResultCardProps {
     data: Stream & { user: User };
@@ -42,3 +49,18 @@ const ResultCard = ({ data }: ResultCardProps) => {
 };
 
 export default ResultCard;
+
+export const ResultCardSkeleton = () => {
+    return (
+        <div className=" h-full w-full space-y-4">
+            <ThumbnailSkeleton />
+            <div className=" flex gap-x-3">
+                <UserAvatarSkeleton />
+                <div className=" flex flex-col gap-y-1">
+                    <Skeleton className=" h-4 w-32" />
+                    <Skeleton className=" h-3 w-24" />
+                </div>
+            </div>
+        </div>
+    );
+};

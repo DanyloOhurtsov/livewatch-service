@@ -1,4 +1,4 @@
 import Results, { ResultsSkeleton } from "./results";
-import ResultCard from "./result-card";
+import ResultCard, { ResultCardSkeleton } from "./result-card";
 
-export { Results, ResultsSkeleton, ResultCard };
+export { Results, ResultsSkeleton, ResultCard, ResultCardSkeleton };
