@@ -17,12 +17,30 @@ import {
     VideoSkeleton,
 } from "./components";
 
-interface StreamPlayerProps {
-    user: User & {
-        stream: Stream | null;
-        _count: { followedBy: number };
+type CustomStream = {
+    id: string;
+    isLive: boolean;
+    isChatDelayed: boolean;
+    isChatEnabled: boolean;
+    isChatFollowersOnly: boolean;
+    thumbnailUrl: string | null;
+    name: string;
+};
+
+type CustomUser = {
+    id: string;
+    bio: string | null;
+    username: string;
+    imageUrl: string;
+    stream: CustomStream | null;
+    _count: {
+        followedBy: number;
     };
-    stream: Stream;
+};
+
+interface StreamPlayerProps {
+    user: CustomUser;
+    stream: CustomStream;
     isFollowing: boolean;
 }
 
