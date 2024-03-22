@@ -1,22 +1,18 @@
-//
 import { notFound } from "next/navigation";
 
 import { isFollowingUser } from "@/lib/follow-service";
 import { getUserByUsername } from "@/lib/user-service";
 import { isBlockedByUser } from "@/lib/block-service";
 
-// ./
 import { BlockedPage } from "../_components/components";
 import StreamPlayer from "@/components/stream-player";
 
-// Interface
 interface UserPageProps {
     params: {
         username: string;
     };
 }
 
-// !_____________________________________________________________________________
 const UserPage = async ({ params }: UserPageProps) => {
     const user = await getUserByUsername(params.username);
 
