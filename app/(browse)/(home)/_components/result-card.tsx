@@ -10,7 +10,12 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface ResultCardProps {
-    data: Stream & { user: User };
+    data: {
+        user: User;
+        thumbnailUrl: string | null;
+        name: string;
+        isLive: boolean;
+    };
 }
 
 const ResultCard = ({ data }: ResultCardProps) => {
