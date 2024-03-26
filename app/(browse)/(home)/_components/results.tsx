@@ -2,7 +2,11 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { getStreams } from "@/lib/feed-service";
 import { ResultCard, ResultCardSkeleton } from "./components";
 
-const Results = async () => {
+interface ResultsProps {
+    term?: string;
+}
+
+const Results = async ({ term }: ResultsProps) => {
     const data = await getStreams();
 
     return (
