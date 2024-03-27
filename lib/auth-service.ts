@@ -1,8 +1,6 @@
-
 import { currentUser } from "@clerk/nextjs";
 import { db } from "@/lib/db";
 
-// !_____________________________________________________________________________
 export const getSelf = async () => {
     const self = await currentUser();
 

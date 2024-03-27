@@ -1,15 +1,13 @@
 "use client";
-//
+
 import qs from "query-string";
 import { useState } from "react";
 import { SearchIcon, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-// !_____________________________________________________________________________
 const Search = () => {
     const router = useRouter();
     const [value, setValue] = useState("");
@@ -28,6 +26,7 @@ const Search = () => {
 
         router.push(url);
     };
+    
     const onClear = () => {
         setValue("");
     };

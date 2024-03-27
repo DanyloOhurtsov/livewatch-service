@@ -1,9 +1,7 @@
 "use client";
 
-//
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -12,14 +10,12 @@ import { Skeleton } from "@/components/ui/skeleton";
 import UserAvatar from "@/components/user-avatar";
 import LiveBadge from "@/components/live-badge";
 
-// Interface
 interface UserItemProps {
     username: string;
     imageUrl: string;
     isLive?: boolean;
 }
 
-// !_____________________________________________________________________________
 const UserItem = ({ username, imageUrl, isLive }: UserItemProps) => {
     const pathName = usePathname();
 
@@ -59,7 +55,6 @@ const UserItem = ({ username, imageUrl, isLive }: UserItemProps) => {
 };
 export default UserItem;
 
-// !_____________________________________________________________________________
 export const UserItemSkeleton = () => {
     return (
         <li className="flex items-center gap-x-4 px-3 py-2">

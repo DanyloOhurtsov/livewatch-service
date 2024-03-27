@@ -6,9 +6,8 @@ import {
     useRemoteParticipant,
     useTracks,
 } from "@livekit/components-react";
-import OfflineVideo from "./offline-video";
-import LoadingVideo from "./loading-video";
-import LiveVideo from "./live-video";
+import { OfflineVideo, LoadingVideo, LiveVideo } from "./components";
+import { Skeleton } from "../ui/skeleton";
 
 interface VideoProps {
     hostName: string;
@@ -39,3 +38,11 @@ const Video = ({ hostIdentity, hostName }: VideoProps) => {
 };
 
 export default Video;
+
+export const VideoSkeleton = () => {
+    return (
+        <div className=" aspect-video border-x border-background">
+            <Skeleton className=" h-full w-full rounded-none" />
+        </div>
+    );
+};

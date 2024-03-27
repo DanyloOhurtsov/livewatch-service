@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Skeleton } from "../ui/skeleton";
-import ChatInfo from "./chat-info";
+import { ChatInfo } from "./components";
 
 interface ChatFormProps {
     onSubmit: () => void;

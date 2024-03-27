@@ -1,8 +1,6 @@
-// ./
 import { getSelf } from "./auth-service";
 import { db } from "./db";
 
-// !_____________________________________________________________________________
 export const getRecommended = async () => {
     let userId;
     try {
